@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1071694489572",
+    "project_id": "ev-app-177c5",
+    "storage_bucket": "ev-app-177c5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071694489572:android:4cb389fb678d53304549f1",
+        "android_client_info": {
+          "package_name": "com.example.ev_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9ZMitFncIy2FVuhsIt4930A2RFwDfXjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
