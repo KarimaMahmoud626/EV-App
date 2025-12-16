@@ -10,6 +10,7 @@ dependencies:
   firebase_core: ^4.3.0
   flutter:
     sdk: flutter
+  flutter_bloc: ^9.1.1
   get: ^4.7.3
 
 dev_dependencies:
