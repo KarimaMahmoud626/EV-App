@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
     this.maxLines,
     this.icon,
     this.suffixIcon,
+    this.controller,
   });
 
   final TextInputType? keyboardType;
@@ -17,11 +18,13 @@ class CustomTextField extends StatelessWidget {
   final int? maxLines;
   final IconData? icon;
   final IconData? suffixIcon;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return TextFormField(
+      controller: controller,
       keyboardType: keyboardType,
       onChanged: onChanged,
       onSaved: onSaved,

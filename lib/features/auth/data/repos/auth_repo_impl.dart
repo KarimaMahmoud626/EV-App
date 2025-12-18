@@ -22,62 +22,25 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 
-  Future<Either<Exception, UserCredential>> createUserEmailAndPassword(
-    String emailAddress,
+  @override
+  Future<Either<Exception, UserCredential>> signInWithEmail(
+    String email,
     String password,
   ) async {
-    // Trigger the authentication flow
-    print('entering email sign in');
     try {
-      final credential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-            email: emailAddress,
-            password: password,
-          );
-      return Right(credential);
+      final user = await dataSource.createWithEmail(email, password);
+      return Right(user);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         print('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
-        await loginWithEmailAndPassword(emailAddress, password);
+        final user = await dataSource.signInWithEmail(email, password);
+        return Right(user);
       }
       return Left(Exception('FirebaseAuthException: $e'));
     } catch (e) {
-      return Left(Exception('Something went wrong while sign in'));
+      return Left(Exception(e));
     }
-  }
-
-  Future<Either<Exception, UserCredential>> loginWithEmailAndPassword(
-    String emailAddress,
-    String password,
-  ) async {
-    // Trigger the authentication flow
-    print('entering email sign in');
-    try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailAddress,
-        password: password,
-      );
-      return Right(credential);
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
-      }
-      return Left(Exception('FirebaseAuthException: $e'));
-    } catch (e) {
-      return Left(Exception('Something went wrong while sign in'));
-    }
-  }
-
-  @override
-  Future<Either<Exception, UserCredential>> signInWithEmail(
-    String email,
-    String password,
-  ) {
-    // TODO: implement signInWithEmail
-    throw UnimplementedError();
   }
 }

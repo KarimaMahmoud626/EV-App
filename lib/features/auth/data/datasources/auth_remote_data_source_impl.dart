@@ -35,7 +35,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
   @override
   Future<UserCredential> createWithEmail(String emailAddress, String password) {
-    return FirebaseAuth.instance.createUserWithEmailAndPassword(
+    return auth.createUserWithEmailAndPassword(
       email: emailAddress,
       password: password,
     );

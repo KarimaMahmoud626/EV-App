@@ -9,7 +9,7 @@ part 'auth_state.dart';
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthRepo repo;
 
-  AuthBloc({required this.repo}) : super(AuthLoading()) {
+  AuthBloc({required this.repo}) : super(AuthInitial()) {
     on<GoogleSignInRequested>(_onGoogleSignIn);
     on<EmailSignInRequested>(_onEmailSignIn);
   }
@@ -18,6 +18,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     GoogleSignInRequested event,
     Emitter<AuthState> emit,
   ) async {
+    emit(AuthLoading());
+
     final result = await repo.loginWithGoogle();
 
     result.fold(
@@ -30,6 +32,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     EmailSignInRequested event,
     Emitter<AuthState> emit,
   ) async {
+    emit(AuthLoading());
+
     final result = await repo.signInWithEmail(
       event.emailAddress,
       event.password,
