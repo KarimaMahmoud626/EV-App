@@ -49,6 +49,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  LoginFormItem(text: 'Full Name', icon: Icons.person),
+                  VerticalSpace(2.5),
                   LoginFormItem(
                     text: 'Email Address',
                     icon: Icons.email_rounded,
