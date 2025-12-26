@@ -13,8 +13,17 @@ class SohCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     final indicatorColor = ColorServices().sohGradient(colors, sohValue);
-    return SizedBox(
-      width: SizeConfig.screenWidth! * 0.95,
+    return Container(
+      width: SizeConfig.screenWidth! * 0.9,
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 10,
+            offset: Offset(0, 4),
+          ),
+        ],
+      ),
       child: Stack(
         children: [
           Card(
@@ -33,7 +42,7 @@ class SohCard extends StatelessWidget {
                   VerticalSpace(2),
                   Text(
                     'Battery SoH',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                   VerticalSpace(0.5),
                   SizedBox(
@@ -52,6 +61,7 @@ class SohCard extends StatelessWidget {
                       ),
                     ),
                   ),
+                  VerticalSpace(0.1),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

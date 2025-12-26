@@ -23,17 +23,21 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
     return [
       BottomBarItem(
         inActiveItem: Icon(Icons.location_on, color: colors.onSurface),
-        activeItem: Icon(Icons.location_on, color: colors.primary),
+        activeItem: Icon(Icons.location_on, color: colors.primary, size: 32),
         itemLabel: 'Stations',
       ),
       BottomBarItem(
         inActiveItem: Icon(Icons.energy_savings_leaf, color: colors.onSurface),
-        activeItem: Icon(Icons.energy_savings_leaf, color: colors.primary),
+        activeItem: Icon(
+          Icons.energy_savings_leaf,
+          color: colors.primary,
+          size: 32,
+        ),
         itemLabel: 'Status',
       ),
       BottomBarItem(
-        inActiveItem: Icon(Icons.history, color: colors.onSurfaceVariant),
-        activeItem: Icon(Icons.history, color: colors.primary),
+        inActiveItem: Icon(Icons.history, color: colors.onSurface),
+        activeItem: Icon(Icons.history, color: colors.primary, size: 32),
         itemLabel: 'History',
       ),
     ];
@@ -69,12 +73,16 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         onTap: (index) {
           _pageController.jumpToPage(index);
         },
+        bottomBarHeight: 200,
         kIconSize: 28,
         kBottomRadius: 20,
         showLabel: true,
         color: colors.surface,
         notchColor: colors.surface,
         showShadow: true,
+        shadowElevation: 3,
+        showBottomRadius: true,
+        showTopRadius: true,
       ),
     );
   }

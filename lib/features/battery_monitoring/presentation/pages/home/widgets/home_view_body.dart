@@ -1,9 +1,11 @@
 import 'package:ev_app/core/utils/size_config.dart';
 import 'package:ev_app/core/widgets/space.dart';
-import 'package:ev_app/core/widgets/user_profile.dart';
+import 'package:ev_app/core/widgets/user_profile_header.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/charging_progress_bar.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/charging_status_card.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/soh_card.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/stats_list.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -12,36 +14,19 @@ class HomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
     SizeConfig().init(context);
     return SingleChildScrollView(
       child: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Row(
-                children: [
-                  Expanded(flex: 1, child: UserProfile(user: user)),
-                  Expanded(
-                    flex: 0,
-                    child: Card(
-                      elevation: 3,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.notifications,
-                          color: colors.onSurface,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            UserProfileHeader(user: user),
             VerticalSpace(2),
             ChargingProgressBar(soc: 70),
-            VerticalSpace(3),
+            VerticalSpace(2),
+            StatsList(),
+            VerticalSpace(1.5),
+            ChargingStatusCard(),
+            VerticalSpace(1),
             SohCard(sohValue: 0.4),
           ],
         ),

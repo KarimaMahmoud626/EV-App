@@ -18,7 +18,7 @@ class ChargingProgressBar extends StatelessWidget {
         boxShadow: ColorServices().circularShadow(colors),
       ),
       child: CircleAvatar(
-        radius: 120,
+        radius: 115,
         backgroundColor: colors.surface,
         child: DashedCircularProgressBar.aspectRatio(
           aspectRatio: 1,
