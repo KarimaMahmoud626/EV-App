@@ -2,9 +2,10 @@ import 'package:ev_app/core/utils/size_config.dart';
 import 'package:ev_app/core/widgets/custom_buttons.dart';
 import 'package:ev_app/core/widgets/custom_line.dart';
 import 'package:ev_app/core/widgets/space.dart';
+import 'package:ev_app/features/auth/data/models/user_model.dart';
 import 'package:ev_app/features/auth/presentation/pages/login/widgets/login_form_item.dart';
 import 'package:ev_app/features/auth/presentation/viewModel/bloc/auth_bloc.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/pages/home/home_view.dart';
+import 'package:ev_app/features/nav_bar/presentation/widgets/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -38,7 +39,15 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         if (state is AuthSuccess) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (_) => const HomeView()),
+            MaterialPageRoute(
+              builder:
+                  (_) => CustomNavigationBar(
+                    user: UserModel(
+                      name: state.userCred.user!.displayName,
+                      email: state.userCred.user!.email!,
+                    ),
+                  ),
+            ),
           );
         }
         if (state is AuthError) {
@@ -145,6 +154,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 ),
                 VerticalSpace(1.5),
                 CustomLoginWithButton(
+                  isLoading: isLoading,
                   text: 'Google',
                   imagePath: 'assets/icons/google_icon.png',
                   onTap: () {

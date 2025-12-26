@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 const darkColorScheme = ColorScheme(
   brightness: Brightness.dark,
-  primary: Color(0xFF01D5A2),
+  primary: Color(0xFF3DF18C),
   onPrimary: Colors.black,
 
-  secondary: Color(0xFFC6F5EA),
+  secondary: Color(0xFFBEFAD8),
   onSecondary: Colors.black,
 
   background: Color(0xFF0B1E1A),

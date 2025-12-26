@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ev_app/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:ev_app/features/auth/data/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -39,5 +41,13 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       email: emailAddress,
       password: password,
     );
+  }
+
+  @override
+  Future<void> saveUserData(UserModel user) async {
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(auth.currentUser!.uid)
+        .set(user.toJson());
   }
 }

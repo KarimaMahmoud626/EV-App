@@ -16,7 +16,7 @@ class UserModel extends Equatable {
     );
   }
 
-  toJson() {
+  Map<String, dynamic> toJson() {
     return {kName: name, kEmail: email, kPassword: password};
   }
 

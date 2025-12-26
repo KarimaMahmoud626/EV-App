@@ -49,11 +49,13 @@ class CustomLoginWithButton extends StatelessWidget {
     this.imagePath,
     required this.text,
     this.onTap,
+    this.isLoading,
   });
 
   final String? imagePath;
   final String text;
   final void Function()? onTap;
+  final bool? isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -73,15 +75,21 @@ class CustomLoginWithButton extends StatelessWidget {
           children: [
             SizedBox(height: 30, width: 30, child: Image.asset(imagePath!)),
             HorizontalSpace(2),
-            Text(
-              text,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.normal,
-                color: colors.onSecondary,
-              ),
-              textAlign: TextAlign.left,
-            ),
+            isLoading!
+                ? SizedBox(
+                  height: 24,
+                  width: 24,
+                  child: CircularProgressIndicator(color: colors.onPrimary),
+                )
+                : Text(
+                  text,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.normal,
+                    color: colors.onSecondary,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
           ],
         ),
       ),
