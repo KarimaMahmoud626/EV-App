@@ -13,3 +13,4 @@ const kTimeToFull = 'timeToFull';
 const kCycleCount = 'cycleCount';
 const kCellVoltages = 'cellVoltages';
 const kTimestamp = 'timestamp';
+const kTargetSoc = 'targetSoc';

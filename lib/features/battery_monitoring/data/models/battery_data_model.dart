@@ -13,6 +13,7 @@ class BatteryDataModel extends Equatable {
   final int cycleCount;
   final List<double> cellVoltages;
   final DateTime timestamp;
+  final double targetSoc;
 
   const BatteryDataModel({
     required this.soc,
@@ -26,6 +27,7 @@ class BatteryDataModel extends Equatable {
     required this.cycleCount,
     required this.cellVoltages,
     required this.timestamp,
+    required this.targetSoc,
   });
 
   Map<String, dynamic> toJson() {
@@ -41,6 +43,7 @@ class BatteryDataModel extends Equatable {
       kCycleCount: cycleCount,
       kCellVoltages: cellVoltages,
       kTimestamp: timestamp,
+      kTargetSoc: targetSoc,
     };
   }
 
