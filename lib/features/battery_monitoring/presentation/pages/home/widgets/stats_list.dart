@@ -27,7 +27,8 @@ class StatsList extends StatelessWidget {
                 child: StatsCustomCard(
                   icon: Icons.bolt,
                   cardTitle: 'Power',
-                  statsValue: '3.5 kW',
+                  statsValue: '3.5',
+                  valueUnit: 'kw',
                 ),
               ),
               SizedBox(width: 12),
@@ -35,7 +36,8 @@ class StatsList extends StatelessWidget {
                 child: StatsCustomCard(
                   icon: Icons.thermostat,
                   cardTitle: 'Temp',
-                  statsValue: '25°C',
+                  statsValue: '25°',
+                  valueUnit: 'C',
                 ),
               ),
             ],
@@ -47,7 +49,8 @@ class StatsList extends StatelessWidget {
                 child: StatsCustomCard(
                   icon: Icons.electric_meter,
                   cardTitle: 'Voltage',
-                  statsValue: '380V',
+                  statsValue: '380',
+                  valueUnit: 'V',
                 ),
               ),
               SizedBox(width: 12),

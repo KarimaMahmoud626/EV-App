@@ -27,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
             VerticalSpace(1.5),
             ChargingStatusCard(),
             VerticalSpace(1),
-            SohCard(sohValue: 0.4),
+            SohCard(sohValue: 0.7),
           ],
         ),
       ),

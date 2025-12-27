@@ -7,10 +7,12 @@ class StatsCustomCard extends StatelessWidget {
     required this.icon,
     required this.cardTitle,
     required this.statsValue,
+    this.valueUnit,
   });
   final IconData icon;
   final String cardTitle;
   final String statsValue;
+  final String? valueUnit;
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +44,23 @@ class StatsCustomCard extends StatelessWidget {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
               ),
               VerticalSpace(0.5),
-              Text(
-                statsValue,
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.normal),
+              Row(
+                children: [
+                  Text(
+                    statsValue,
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  Text(
+                    valueUnit ?? '',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

@@ -73,7 +73,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
         onTap: (index) {
           _pageController.jumpToPage(index);
         },
-        bottomBarHeight: 200,
+        bottomBarHeight: 70,
         kIconSize: 28,
         kBottomRadius: 20,
         showLabel: true,
