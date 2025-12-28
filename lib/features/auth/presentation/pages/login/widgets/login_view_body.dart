@@ -129,7 +129,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   ),
                 ),
                 VerticalSpace(3),
-                CustomLoginButton(
+                CustomGenralButton(
                   isLoading: isLoading,
                   onTap: () {
                     if (_formKey.currentState!.validate()) {

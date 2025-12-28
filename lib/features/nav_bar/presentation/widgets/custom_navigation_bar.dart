@@ -27,21 +27,17 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
     return [
       BottomBarItem(
         inActiveItem: Icon(Icons.location_on, color: colors.onSurface),
-        activeItem: Icon(Icons.location_on, color: colors.primary, size: 32),
+        activeItem: Icon(Icons.location_on, color: colors.primary),
         itemLabel: 'Stations',
       ),
       BottomBarItem(
         inActiveItem: Icon(Icons.energy_savings_leaf, color: colors.onSurface),
-        activeItem: Icon(
-          Icons.energy_savings_leaf,
-          color: colors.primary,
-          size: 32,
-        ),
+        activeItem: Icon(Icons.energy_savings_leaf, color: colors.primary),
         itemLabel: 'Status',
       ),
       BottomBarItem(
         inActiveItem: Icon(Icons.history, color: colors.onSurface),
-        activeItem: Icon(Icons.history, color: colors.primary, size: 32),
+        activeItem: Icon(Icons.history, color: colors.primary),
         itemLabel: 'History',
       ),
     ];

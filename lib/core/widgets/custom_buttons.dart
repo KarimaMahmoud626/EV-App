@@ -2,11 +2,16 @@ import 'package:ev_app/core/utils/size_config.dart';
 import 'package:ev_app/core/widgets/space.dart';
 import 'package:flutter/material.dart';
 
-class CustomLoginButton extends StatelessWidget {
-  const CustomLoginButton({super.key, this.onTap, this.isLoading = false});
+class CustomGenralButton extends StatelessWidget {
+  const CustomGenralButton({
+    super.key,
+    this.onTap,
+    this.isLoading = false,
+    this.text = 'Login',
+  });
 
   final void Function()? onTap;
-
+  final String? text;
   final bool isLoading;
 
   @override
@@ -30,7 +35,7 @@ class CustomLoginButton extends StatelessWidget {
                     child: CircularProgressIndicator(color: colors.onPrimary),
                   )
                   : Text(
-                    'Login',
+                    text!,
                     style: TextStyle(
                       color: colors.onPrimaryFixedVariant,
                       fontSize: 20,
@@ -49,13 +54,15 @@ class CustomLoginWithButton extends StatelessWidget {
     this.imagePath,
     required this.text,
     this.onTap,
-    this.isLoading,
+    this.isLoading = false,
+    this.color,
   });
 
   final String? imagePath;
   final String text;
   final void Function()? onTap;
   final bool? isLoading;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +73,7 @@ class CustomLoginWithButton extends StatelessWidget {
         height: 60,
         width: SizeConfig.screenWidth,
         decoration: BoxDecoration(
-          color: colors.secondary,
+          color: color ?? colors.secondary,
           border: Border.all(color: colors.onSecondaryContainer),
           borderRadius: BorderRadius.circular(16),
         ),

@@ -15,7 +15,7 @@ class ChargingStatusCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final timeInMin = timeToFull!.inMinutes;
+    final timeInMin = timeToFull != null ? timeToFull!.inMinutes : 0;
     final hours = (timeInMin / 60).toInt();
     final min = timeInMin % 60;
     return Column(

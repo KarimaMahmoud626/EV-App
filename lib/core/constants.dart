@@ -1,6 +1,7 @@
 const kName = 'name';
 const kEmail = 'email';
 const kPassword = 'password';
+const kImage = 'image';
 
 const kSoc = 'soc';
 const kSoh = 'soh';
