@@ -50,13 +50,13 @@ class ColorServices {
 
   LinearGradient sohGradient(ColorScheme colors, double value) {
     // 0.0 → 0.4 : error only
-    if (value <= 0.25) {
+    if (value <= 0.4) {
       return LinearGradient(colors: [colors.error, colors.error]);
     }
 
     // 0.4 → 0.7 : error → primary
     if (value <= 0.7) {
-      final t = (value - 0.25) / (0.7 - 0.25); // 0 → 1
+      final t = (value - 0.4) / (0.7 - 0.4); // 0 → 1
 
       final blended = Color.lerp(colors.error, colors.primary, t)!;
 
@@ -73,7 +73,7 @@ class ColorServices {
 
     return LinearGradient(
       colors: [colors.error, blended, colors.primary],
-      stops: [0.0, 0.25, 1.0],
+      stops: [0.0, 0.4, 1.0],
     );
   }
 

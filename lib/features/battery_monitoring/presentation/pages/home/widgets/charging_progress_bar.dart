@@ -4,9 +4,14 @@ import 'package:ev_app/features/battery_monitoring/presentation/pages/services/c
 import 'package:flutter/material.dart';
 
 class ChargingProgressBar extends StatelessWidget {
-  const ChargingProgressBar({super.key, required this.soc});
+  const ChargingProgressBar({
+    super.key,
+    required this.soc,
+    required this.estimatedRange,
+  });
 
   final double soc;
+  final double estimatedRange;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +71,7 @@ class ChargingProgressBar extends StatelessWidget {
                           Icon(Icons.speed, size: 32, color: colors.secondary),
                           HorizontalSpace(.5),
                           Text(
-                            '300',
+                            '${estimatedRange.toInt()}',
                             style: TextStyle(
                               fontSize: 42,
                               color: colors.onSurface,

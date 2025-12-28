@@ -3,7 +3,18 @@ import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widge
 import 'package:flutter/material.dart';
 
 class StatsList extends StatelessWidget {
-  const StatsList({super.key});
+  const StatsList({
+    super.key,
+    required this.batteryPower,
+    required this.batteryTemp,
+    required this.batteryVolt,
+    required this.cycleCount,
+  });
+
+  final double batteryPower;
+  final double batteryTemp;
+  final double batteryVolt;
+  final int cycleCount;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +38,7 @@ class StatsList extends StatelessWidget {
                 child: StatsCustomCard(
                   icon: Icons.bolt,
                   cardTitle: 'Power',
-                  statsValue: '3.5',
+                  statsValue: '${batteryPower.toInt()}',
                   valueUnit: 'kw',
                 ),
               ),
@@ -36,7 +47,7 @@ class StatsList extends StatelessWidget {
                 child: StatsCustomCard(
                   icon: Icons.thermostat,
                   cardTitle: 'Temp',
-                  statsValue: '25°',
+                  statsValue: '${batteryTemp.toInt()}°',
                   valueUnit: 'C',
                 ),
               ),
@@ -49,7 +60,7 @@ class StatsList extends StatelessWidget {
                 child: StatsCustomCard(
                   icon: Icons.electric_meter,
                   cardTitle: 'Voltage',
-                  statsValue: '380',
+                  statsValue: '${batteryVolt.toInt()}',
                   valueUnit: 'V',
                 ),
               ),
@@ -58,7 +69,7 @@ class StatsList extends StatelessWidget {
                 child: StatsCustomCard(
                   icon: Icons.refresh,
                   cardTitle: 'Cycles',
-                  statsValue: '1,250',
+                  statsValue: '$cycleCount',
                 ),
               ),
             ],

@@ -1,7 +1,11 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+import 'package:ev_app/core/services/battery_data_simulator.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
+import 'package:ev_app/features/battery_monitoring/data/repos/battery_data_repo.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/manager/cubit/battery_cubit.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/pages/home/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   const CustomNavigationBar({super.key, required this.user});
@@ -60,29 +64,34 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        physics: const NeverScrollableScrollPhysics(),
-        children: _buildScreens(),
-      ),
-      bottomNavigationBar: AnimatedNotchBottomBar(
-        notchBottomBarController: _notchController,
-        bottomBarItems: _navBarItems(colors),
-        onTap: (index) {
-          _pageController.jumpToPage(index);
-        },
-        bottomBarHeight: 70,
-        kIconSize: 28,
-        kBottomRadius: 20,
-        showLabel: true,
-        color: colors.surface,
-        notchColor: colors.surface,
-        showShadow: true,
-        shadowElevation: 3,
-        showBottomRadius: true,
-        showTopRadius: true,
+    return BlocProvider(
+      create:
+          (context) =>
+              BatteryCubit(BatteryDataRepo(BatteryDataSimulator()))
+                ..startMonitoring(),
+      child: Scaffold(
+        body: PageView(
+          controller: _pageController,
+          physics: const NeverScrollableScrollPhysics(),
+          children: _buildScreens(),
+        ),
+        bottomNavigationBar: AnimatedNotchBottomBar(
+          notchBottomBarController: _notchController,
+          bottomBarItems: _navBarItems(colors),
+          onTap: (index) {
+            _pageController.jumpToPage(index);
+          },
+          bottomBarHeight: 70,
+          kIconSize: 28,
+          kBottomRadius: 20,
+          showLabel: true,
+          color: colors.surface,
+          notchColor: colors.surface,
+          showShadow: true,
+          shadowElevation: 3,
+          showBottomRadius: true,
+          showTopRadius: true,
+        ),
       ),
     );
   }

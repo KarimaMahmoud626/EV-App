@@ -4,11 +4,20 @@ import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widge
 import 'package:flutter/material.dart';
 
 class ChargingStatusCard extends StatelessWidget {
-  const ChargingStatusCard({super.key});
+  const ChargingStatusCard({
+    super.key,
+    required this.timeToFull,
+    required this.targetCharge,
+  });
+  final Duration? timeToFull;
+  final double targetCharge;
 
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final timeInMin = timeToFull!.inMinutes;
+    final hours = (timeInMin / 60).toInt();
+    final min = timeInMin % 60;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -49,7 +58,8 @@ class ChargingStatusCard extends StatelessWidget {
                   ChargingStatusItem(
                     icon: Icons.timer,
                     statusItem: 'Time to Full',
-                    statusItemValue: '1h 30m',
+                    statusItemValue:
+                        timeToFull != null ? '${hours}h ${min}m' : '',
                   ),
                   VerticalSpace(0.5),
                   ChargingStatusItem(
@@ -61,7 +71,7 @@ class ChargingStatusCard extends StatelessWidget {
                   ChargingStatusItem(
                     icon: Icons.battery_charging_full_rounded,
                     statusItem: 'Target',
-                    statusItemValue: '80%',
+                    statusItemValue: '$targetCharge%',
                   ),
                 ],
               ),

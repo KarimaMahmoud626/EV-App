@@ -1,15 +1,20 @@
 import 'package:ev_app/core/widgets/user_profile.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/charging_button.dart';
 import 'package:flutter/material.dart';
 
 class UserProfileHeader extends StatelessWidget {
-  const UserProfileHeader({super.key, required this.user});
+  const UserProfileHeader({
+    super.key,
+    required this.user,
+    required this.buildContext,
+  });
 
   final UserModel user;
+  final BuildContext buildContext;
 
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Row(
@@ -19,10 +24,7 @@ class UserProfileHeader extends StatelessWidget {
             flex: 0,
             child: Card(
               elevation: 3,
-              child: IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.notifications, color: colors.onSurface),
-              ),
+              child: ChargingButton(buildContext: buildContext),
             ),
           ),
         ],
