@@ -2,7 +2,7 @@ import 'package:ev_app/core/utils/size_config.dart';
 import 'package:ev_app/core/widgets/custom_buttons.dart';
 import 'package:ev_app/core/widgets/space.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
-import 'package:ev_app/features/auth/presentation/manager/bloc/auth_bloc.dart';
+import 'package:ev_app/features/auth/presentation/view_model/bloc/auth_bloc.dart';
 import 'package:ev_app/features/auth/presentation/pages/login/login_view.dart';
 import 'package:ev_app/features/nav_bar/presentation/widgets/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';

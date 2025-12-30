@@ -1,5 +1,5 @@
 import 'package:ev_app/core/widgets/space.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/stats_custom_card.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/stats_custom_card.dart';
 import 'package:flutter/material.dart';
 
 class StatsList extends StatelessWidget {

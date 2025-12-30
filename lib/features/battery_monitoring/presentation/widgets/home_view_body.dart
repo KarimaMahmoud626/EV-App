@@ -1,13 +1,14 @@
 import 'package:ev_app/core/utils/size_config.dart';
+import 'package:ev_app/core/widgets/custom_back_button.dart';
 import 'package:ev_app/core/widgets/space.dart';
-import 'package:ev_app/core/widgets/user_profile_header.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/manager/cubit/battery_cubit.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/charging_progress_bar.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/charging_status_card.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/error_view.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/soh_card.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/stats_list.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/view_model/cubit/battery_cubit.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/charging_button.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/charging_progress_bar.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/charging_status_card.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/error_view.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/soh_card.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/stats_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,7 +38,16 @@ class HomeViewBody extends StatelessWidget {
             child: SafeArea(
               child: Column(
                 children: [
-                  UserProfileHeader(user: user, buildContext: context),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        CustomBackButton(),
+                        Spacer(),
+                        ChargingButton(buildContext: context),
+                      ],
+                    ),
+                  ),
                   VerticalSpace(2),
                   ChargingProgressBar(
                     soc: state.data.soc,

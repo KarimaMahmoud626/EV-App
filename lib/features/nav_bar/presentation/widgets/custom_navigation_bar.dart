@@ -2,7 +2,7 @@ import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_not
 import 'package:ev_app/core/services/battery_data_simulator.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
 import 'package:ev_app/features/battery_monitoring/data/repos/battery_data_repo.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/manager/cubit/battery_cubit.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/view_model/cubit/battery_cubit.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/pages/home/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

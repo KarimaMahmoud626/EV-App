@@ -1,6 +1,6 @@
 import 'package:ev_app/features/auth/data/datasources/auth_remote_data_source_impl.dart';
 import 'package:ev_app/features/auth/data/repos/auth_repo_impl.dart';
-import 'package:ev_app/features/auth/presentation/manager/bloc/auth_bloc.dart';
+import 'package:ev_app/features/auth/presentation/view_model/bloc/auth_bloc.dart';
 import 'package:ev_app/features/onboarding/presentation/widgets/onboarding_body.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

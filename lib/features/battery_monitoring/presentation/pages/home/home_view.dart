@@ -1,5 +1,5 @@
 import 'package:ev_app/features/auth/data/models/user_model.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/home_view_body.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/home_view_body.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {

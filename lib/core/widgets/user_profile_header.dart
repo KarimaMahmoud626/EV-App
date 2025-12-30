@@ -1,6 +1,6 @@
 import 'package:ev_app/core/widgets/user_profile.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/charging_button.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/charging_button.dart';
 import 'package:flutter/material.dart';
 
 class UserProfileHeader extends StatelessWidget {
@@ -20,13 +20,7 @@ class UserProfileHeader extends StatelessWidget {
       child: Row(
         children: [
           Expanded(flex: 1, child: UserProfile(user: user)),
-          Expanded(
-            flex: 0,
-            child: Card(
-              elevation: 3,
-              child: ChargingButton(buildContext: buildContext),
-            ),
-          ),
+          Expanded(flex: 0, child: ChargingButton(buildContext: buildContext)),
         ],
       ),
     );

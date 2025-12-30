@@ -1,6 +1,6 @@
 import 'package:ev_app/core/utils/size_config.dart';
 import 'package:ev_app/core/widgets/space.dart';
-import 'package:ev_app/features/battery_monitoring/presentation/pages/home/widgets/charging_status_item.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/charging_status_item.dart';
 import 'package:flutter/material.dart';
 
 class ChargingStatusCard extends StatelessWidget {
