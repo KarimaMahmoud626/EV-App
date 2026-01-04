@@ -96,6 +96,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           icon: Icons.person,
                           keyboardType: TextInputType.name,
                           controller: nameController,
+                          textInputAction: TextInputAction.next,
                         ),
                         VerticalSpace(2.5),
                         LoginFormItem(
@@ -103,6 +104,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           icon: Icons.email_rounded,
                           keyboardType: TextInputType.emailAddress,
                           controller: emailController,
+                          textInputAction: TextInputAction.next,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Required';
@@ -118,6 +120,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           icon: Icons.lock_rounded,
                           suffixIcon: Icons.visibility_outlined,
                           keyboardType: TextInputType.visiblePassword,
+                          textInputAction: TextInputAction.done,
                           validator:
                               (value) =>
                                   value == null || value.isEmpty

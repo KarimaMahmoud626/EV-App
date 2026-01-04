@@ -10,6 +10,7 @@ class CustomTextField extends StatelessWidget {
     this.icon,
     this.suffixIcon,
     this.controller,
+    this.textInputAction,
   });
 
   final TextInputType? keyboardType;
@@ -19,6 +20,7 @@ class CustomTextField extends StatelessWidget {
   final IconData? icon;
   final IconData? suffixIcon;
   final TextEditingController? controller;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +31,7 @@ class CustomTextField extends StatelessWidget {
       onChanged: onChanged,
       onSaved: onSaved,
       maxLines: maxLines,
+      textInputAction: textInputAction,
       decoration: InputDecoration(
         prefixIcon: Icon(icon, size: 20, color: colors.onSurfaceVariant),
         suffixIcon: Icon(suffixIcon, size: 20, color: colors.onSurfaceVariant),

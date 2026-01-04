@@ -1,9 +1,14 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:ev_app/core/services/battery_data_simulator.dart';
+import 'package:ev_app/core/services/location_services.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
 import 'package:ev_app/features/battery_monitoring/data/repos/battery_data_repo.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/view_model/cubit/battery_cubit.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/pages/home/home_view.dart';
+import 'package:ev_app/features/charging_stations/data/dataSources/charging_station_remote_ds_impl.dart';
+import 'package:ev_app/features/charging_stations/data/repos/charging_station_repo_impl.dart';
+import 'package:ev_app/features/charging_stations/presentation/pages/station_view.dart';
+import 'package:ev_app/features/charging_stations/presentation/view_model/cubit/charging_station_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,14 +25,14 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   late final NotchBottomBarController _notchController;
 
   List<Widget> _buildScreens() {
-    return [const Scaffold(), HomeView(user: widget.user), const Scaffold()];
+    return [const StationView(), HomeView(user: widget.user), const Scaffold()];
   }
 
   List<BottomBarItem> _navBarItems(ColorScheme colors) {
     return [
       BottomBarItem(
         inActiveItem: Icon(Icons.location_on, color: colors.onSurface),
-        activeItem: Icon(Icons.location_on, color: colors.primary),
+        activeItem: Icon(Icons.location_on, color: colors.primary, size: 32),
         itemLabel: 'Stations',
       ),
       BottomBarItem(
@@ -60,11 +65,25 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    return BlocProvider(
-      create:
-          (context) =>
-              BatteryCubit(BatteryDataRepo(BatteryDataSimulator()))
-                ..startMonitoring(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create:
+              (context) =>
+                  BatteryCubit(BatteryDataRepo(BatteryDataSimulator()))
+                    ..startMonitoring(),
+        ),
+        BlocProvider(
+          create:
+              (context) => ChargingStationCubit(
+                ChargingStationRepoImpl(
+                  remoteDs: ChargingStationRemoteDsImpl(
+                    locationService: LocationService(),
+                  ),
+                ),
+              )..getStations(),
+        ),
+      ],
       child: Scaffold(
         body: PageView(
           controller: _pageController,
@@ -77,7 +96,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           onTap: (index) {
             _pageController.jumpToPage(index);
           },
-          bottomBarHeight: 70,
+          bottomBarHeight: 62,
           kIconSize: 28,
           kBottomRadius: 20,
           showLabel: true,
@@ -85,8 +104,8 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           notchColor: colors.surface,
           showShadow: true,
           shadowElevation: 3,
-          showBottomRadius: true,
-          showTopRadius: true,
+          // showBottomRadius: true,
+          // showTopRadius: true,
         ),
       ),
     );

@@ -14,6 +14,7 @@ class LoginFormItem extends StatelessWidget {
     this.validator,
     this.suffixIcon,
     this.controller,
+    this.textInputAction,
   });
 
   final String text;
@@ -25,6 +26,7 @@ class LoginFormItem extends StatelessWidget {
   final IconData? suffixIcon;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final TextInputAction? textInputAction;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +51,7 @@ class LoginFormItem extends StatelessWidget {
           icon: icon,
           suffixIcon: suffixIcon,
           controller: controller,
+          textInputAction: textInputAction,
         ),
       ],
     );

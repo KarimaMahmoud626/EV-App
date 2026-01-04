@@ -15,7 +15,7 @@ class BatteryDataSimulator {
   static const double absoluteMinSOC = 5.0; // ← Emergency only
 
   // Current state
-  double _currentSOC = 65.0;
+  double _currentSOC = 15.0;
   double _currentSOH = 95.0;
   double _temperature = 25.0;
   bool _isCharging = false;
@@ -31,7 +31,7 @@ class BatteryDataSimulator {
   double _targetSOC = maxChargingSOC; // ← Target for charging
 
   // Constructor
-  BatteryDataSimulator({double initialSOC = 65.0}) {
+  BatteryDataSimulator({double initialSOC = 15.0}) {
     _currentSOC = initialSOC.clamp(absoluteMinSOC, 100.0);
   }
 
