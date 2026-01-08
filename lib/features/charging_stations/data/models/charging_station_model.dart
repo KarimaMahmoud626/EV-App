@@ -22,17 +22,17 @@ class ChargingStationModel extends Equatable {
   });
 
   factory ChargingStationModel.fromJson(Map<String, dynamic> jsonData) {
-    final stationConnections = jsonData[kStationConnections] as List;
+    final stationConnections =
+        (jsonData[kStationConnections] as List)
+            .map((connection) => StationConnectionModel.fromJson(connection))
+            .toList();
     return ChargingStationModel(
       isActive: jsonData[kStationIsActive],
       address: jsonData[kStationAddress],
       name: jsonData[kStationName],
       latitude: jsonData[kStationLatitude],
       longitude: jsonData[kStationLongitude],
-      connections:
-          stationConnections
-              .map((connection) => StationConnectionModel.fromJson(connection))
-              .toList(),
+      connections: stationConnections,
     );
   }
 

@@ -100,7 +100,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
           kIconSize: 28,
           kBottomRadius: 20,
           showLabel: true,
-          color: colors.surface,
+          color: colors.background,
           notchColor: colors.surface,
           showShadow: true,
           shadowElevation: 3,
