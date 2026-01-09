@@ -1,5 +1,4 @@
 import 'package:ev_app/core/utils/size_config.dart';
-import 'package:ev_app/core/widgets/custom_back_button.dart';
 import 'package:ev_app/core/widgets/space.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/view_model/cubit/battery_cubit.dart';
@@ -9,6 +8,7 @@ import 'package:ev_app/features/battery_monitoring/presentation/widgets/charging
 import 'package:ev_app/features/battery_monitoring/presentation/widgets/error_view.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/widgets/soh_card.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/widgets/stats_list.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/theme_toggle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,6 +24,7 @@ class HomeViewBody extends StatelessWidget {
         if (state is BatteryLoading) {
           return Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 CircularProgressIndicator(),
                 Text(
@@ -42,7 +43,7 @@ class HomeViewBody extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        CustomBackButton(),
+                        ThemeToggleButton(),
                         Spacer(),
                         ChargingButton(buildContext: context),
                       ],

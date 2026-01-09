@@ -1,6 +1,5 @@
 import 'package:ev_app/core/utils/size_config.dart';
 import 'package:ev_app/core/widgets/custom_buttons.dart';
-import 'package:ev_app/core/widgets/rounded_rectangle_image_container.dart';
 import 'package:ev_app/core/widgets/space.dart';
 import 'package:ev_app/features/charging_stations/data/models/charging_station_model.dart';
 import 'package:ev_app/features/charging_stations/presentation/widgets/charging_station_info_item.dart';

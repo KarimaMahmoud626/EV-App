@@ -23,7 +23,7 @@ class EvApp extends StatelessWidget {
         builder: (context, mode) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            theme: AppTheme.dark(),
+            theme: AppTheme.light(),
             darkTheme: AppTheme.dark(),
             themeMode: mode,
             home: OnboardingView(),

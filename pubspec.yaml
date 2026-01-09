@@ -17,6 +17,7 @@ dependencies:
   firebase_core: ^4.3.0
   flutter:
     sdk: flutter
+  flutter_advanced_switch: ^3.1.0
   flutter_bloc: ^9.1.1
   flutter_map: ^8.2.2
   font_awesome_icon_class: ^0.0.6
@@ -27,6 +28,7 @@ dependencies:
   http: ^1.6.0
   latlong2: ^0.9.1
   model_viewer_plus: ^1.9.3
+  toggle_switch: ^2.3.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0
