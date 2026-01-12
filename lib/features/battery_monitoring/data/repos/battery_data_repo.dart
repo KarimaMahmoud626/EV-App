@@ -1,27 +1,25 @@
-import 'package:ev_app/core/services/battery_data_simulator.dart';
 import 'package:ev_app/features/battery_monitoring/data/models/battery_data_model.dart';
 
-class BatteryDataRepo {
-  final BatteryDataSimulator simulator;
+/// Abstract repository for battery monitoring operations.
+///
+/// Defines the contract for battery data operations.
+abstract class BatteryDataRepo {
+  /// Gets a stream of battery data updates.
+  ///
+  /// Emits [BatteryDataModel] periodically with current battery status.
+  Stream<BatteryDataModel> getBatteryDataStream();
 
-  const BatteryDataRepo(this.simulator);
+  /// Starts the battery charging process.
+  void startCharging();
 
-  Stream<BatteryDataModel> getBatteryDataStream() {
-    return simulator.getBatteryDataStream();
-  }
+  /// Stops the battery charging process.
+  void stopCharging();
 
-  void startCharging() {
-    simulator.startCharging();
-  }
+  /// Returns whether the battery is currently charging.
+  bool get isCharging;
 
-  void stopCharging() {
-    simulator.stopCharging();
-  }
-
-  bool get isCharging => simulator.isCharging;
-
-  Future<BatteryDataModel> getCurrentBatteryData() async {
-    final data = await simulator.getBatteryDataStream().first;
-    return data;
-  }
+  /// Gets the current battery data as a one-time value.
+  ///
+  /// Returns the current [BatteryDataModel] snapshot.
+  Future<BatteryDataModel> getCurrentBatteryData();
 }

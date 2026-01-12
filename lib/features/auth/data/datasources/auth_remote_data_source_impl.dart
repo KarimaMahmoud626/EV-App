@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ev_app/core/utils/app_logger.dart';
 import 'package:ev_app/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -9,6 +10,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   final FirebaseAuth auth;
 
   AuthRemoteDataSourceImpl(this.auth, this.googleSignIn);
+
   @override
   Future<UserCredential> signInWithEmail(String emailAddress, String password) {
     return auth.signInWithEmailAndPassword(
@@ -31,7 +33,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       idToken: googleAuth.idToken,
       accessToken: googleAuth.accessToken,
     );
-    print('compelete google sign in');
+    AppLogger.info('compelete google sign in');
     return await auth.signInWithCredential(credential);
   }
 

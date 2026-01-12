@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ev_app/core/constants.dart';
+import 'package:ev_app/core/constants/constants.dart';
 import 'package:ev_app/features/charging_stations/data/models/station_connection_model.dart';
 
 class ChargingStationModel extends Equatable {
@@ -24,14 +24,18 @@ class ChargingStationModel extends Equatable {
   factory ChargingStationModel.fromJson(Map<String, dynamic> jsonData) {
     final stationConnections =
         (jsonData[kStationConnections] as List)
-            .map((connection) => StationConnectionModel.fromJson(connection))
+            .map(
+              (connection) => StationConnectionModel.fromJson(
+                connection as Map<String, dynamic>,
+              ),
+            )
             .toList();
     return ChargingStationModel(
-      isActive: jsonData[kStationIsActive],
-      address: jsonData[kStationAddress],
-      name: jsonData[kStationName],
-      latitude: jsonData[kStationLatitude],
-      longitude: jsonData[kStationLongitude],
+      isActive: jsonData[kStationIsActive] as bool,
+      address: jsonData[kStationAddress] as String,
+      name: jsonData[kStationName] as String,
+      latitude: jsonData[kStationLatitude] as double,
+      longitude: jsonData[kStationLongitude] as double,
       connections: stationConnections,
     );
   }

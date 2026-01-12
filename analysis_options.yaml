@@ -1,1 +1,83 @@
+# Flutter analysis options for EV-App
+# Enforces best practices and code quality standards
+
 include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "build/**"
+  
+  errors:
+    # Treat missing required parameters as errors
+    missing_required_param: error
+    missing_return: error
+    
+    # Ignore TODOs in development
+    todo: ignore
+    
+    # Deprecated API usage should be warnings
+    deprecated_member_use: warning
+    deprecated_member_use_from_same_package: warning
+  
+  language:
+    # Enable strict mode for better type safety
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+
+linter:
+  rules:
+    # Error handling
+    - avoid_catching_errors
+    - avoid_returning_null_for_future
+    - use_rethrow_when_possible
+    
+    # Code style
+    - always_declare_return_types
+    - always_put_required_named_parameters_first
+    - annotate_overrides
+    - avoid_init_to_null
+    - avoid_null_checks_in_equality_operators
+    - avoid_renaming_method_parameters
+    - avoid_return_types_on_setters
+    - avoid_shadowing_type_parameters
+    - avoid_types_as_parameter_names
+    - camel_case_extensions
+    - camel_case_types
+    - curly_braces_in_flow_control_structures
+    - empty_catches
+    - empty_constructor_bodies
+    - library_names
+    - library_prefixes
+    - no_duplicate_case_values
+    - null_closures
+    - prefer_adjacent_string_concatenation
+    - prefer_collection_literals
+    - prefer_conditional_assignment
+    - prefer_contains
+    - prefer_equal_for_default_values
+    - prefer_final_fields
+    - prefer_for_elements_to_map_fromIterable
+    - prefer_generic_function_type_aliases
+    - prefer_if_null_operators
+    - prefer_is_empty
+    - prefer_is_not_empty
+    - prefer_iterable_whereType
+    - prefer_single_quotes
+    - prefer_spread_collections
+    - recursive_getters
+    - slash_for_doc_comments
+    - type_init_formals
+    - unawaited_futures
+    - unnecessary_brace_in_string_interps
+    - unnecessary_const
+    - unnecessary_getters_setters
+    - unnecessary_new
+    - unnecessary_null_in_if_null_operators
+    - unnecessary_this
+    - unrelated_type_equality_checks
+    - use_function_type_syntax_for_parameters
+    - use_rethrow_when_possible
+    - valid_regexps

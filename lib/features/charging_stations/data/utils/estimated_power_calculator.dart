@@ -1,20 +1,22 @@
 class EstimatedPowerCalculator {
-  double? estimatePower({required int? level, required String typeName}) {
+  static double? estimatePower({required int? level, String? typeName}) {
     if (level == null) return null;
+
+    final type = typeName ?? '';
 
     switch (level) {
       case 1:
         return 3.7;
 
       case 2:
-        if (typeName.contains('Type 1') || typeName.contains('J1772')) {
+        if (type.contains('Type 1') || type.contains('J1772')) {
           return 7.4;
         }
         return 11;
 
       case 3:
-        if (typeName.contains('CHAdeMO')) return 100;
-        if (typeName.contains('CCS')) return 150;
+        if (type.contains('CHAdeMO')) return 100;
+        if (type.contains('CCS')) return 150;
         return 50;
 
       default:

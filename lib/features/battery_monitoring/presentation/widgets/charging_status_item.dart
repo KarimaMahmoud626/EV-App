@@ -19,19 +19,19 @@ class ChargingStatusItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Icon(icon, color: colors.secondary, size: 16),
-        HorizontalSpace(1),
+        const HorizontalSpace(1),
         Expanded(
           flex: 1,
           child: Text(
             statusItem,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
           ),
         ),
         Expanded(
           flex: 0,
           child: Text(
             statusItemValue ?? '',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.normal),
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.normal),
           ),
         ),
       ],

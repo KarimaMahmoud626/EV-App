@@ -39,12 +39,15 @@ class SohCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Icon(FontAwesomeIcons.heartPulse, color: colors.secondary),
-                  VerticalSpace(2),
+                  const VerticalSpace(2),
                   Text(
                     'Battery SoH',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
-                  VerticalSpace(0.5),
+                  const VerticalSpace(0.5),
                   SizedBox(
                     height: 8,
                     child: ShaderMask(
@@ -61,7 +64,7 @@ class SohCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  VerticalSpace(0.1),
+                  const VerticalSpace(0.1),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -92,9 +95,9 @@ class SohCard extends StatelessWidget {
               children: [
                 Text(
                   '${(sohValue * 100).toInt()}',
-                  style: TextStyle(fontSize: 48),
+                  style: const TextStyle(fontSize: 48),
                 ),
-                Text('%'),
+                const Text('%'),
               ],
             ),
           ),

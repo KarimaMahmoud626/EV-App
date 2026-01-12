@@ -14,24 +14,30 @@ class ThemeToggleButton extends StatelessWidget {
     final isDark = themeMode == ThemeMode.dark;
     final controller = ValueNotifier<bool>(isDark);
 
-    return AdvancedSwitch(
-      controller: controller,
-      width: 60,
-      borderRadius: BorderRadius.circular(16),
+    return Card(
+      elevation: 3,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      color: colors.surface,
+      child: AdvancedSwitch(
+        controller: controller,
+        width: 80,
+        height: 45,
+        borderRadius: BorderRadius.circular(16),
 
-      activeChild: Icon(Icons.dark_mode, color: colors.primary),
-      inactiveChild: Icon(Icons.light_mode, color: colors.primary),
+        activeChild: Icon(Icons.light_mode, color: colors.primary, size: 28),
+        inactiveChild: Icon(Icons.dark_mode, color: colors.primary, size: 28),
 
-      activeColor: colors.surface,
-      inactiveColor: colors.surface,
+        activeColor: colors.surface,
+        inactiveColor: colors.surface,
 
-      onChanged: (value) {
-        if (value) {
-          context.read<ThemeCubit>().setDark();
-        } else {
-          context.read<ThemeCubit>().setLight();
-        }
-      },
+        onChanged: (value) {
+          if (value as bool) {
+            context.read<ThemeCubit>().setDark();
+          } else {
+            context.read<ThemeCubit>().setLight();
+          }
+        },
+      ),
     );
   }
 }

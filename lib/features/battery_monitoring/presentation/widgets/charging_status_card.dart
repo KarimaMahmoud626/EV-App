@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 
 class ChargingStatusCard extends StatelessWidget {
   const ChargingStatusCard({
-    super.key,
     required this.timeToFull,
     required this.targetCharge,
+    super.key,
   });
   final Duration? timeToFull;
   final double targetCharge;
@@ -29,7 +29,7 @@ class ChargingStatusCard extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        VerticalSpace(1),
+        const VerticalSpace(1),
         Container(
           width: SizeConfig.screenWidth! * 0.9,
           decoration: BoxDecoration(
@@ -51,7 +51,7 @@ class ChargingStatusCard extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
-                  ChargingStatusItem(
+                  const ChargingStatusItem(
                     icon: Icons.electric_bolt,
                     statusItem: 'Fast Charging',
                   ),
@@ -61,13 +61,13 @@ class ChargingStatusCard extends StatelessWidget {
                     statusItemValue:
                         timeToFull != null ? '${hours}h ${min}m' : '',
                   ),
-                  VerticalSpace(0.5),
-                  ChargingStatusItem(
+                  const VerticalSpace(0.5),
+                  const ChargingStatusItem(
                     icon: Icons.bar_chart_rounded,
                     statusItem: 'Charge Rate',
                     statusItemValue: '50Kw',
                   ),
-                  VerticalSpace(0.5),
+                  const VerticalSpace(0.5),
                   ChargingStatusItem(
                     icon: Icons.battery_charging_full_rounded,
                     statusItem: 'Target',

@@ -26,8 +26,8 @@ class HomeViewBody extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CircularProgressIndicator(),
-                Text(
+                const CircularProgressIndicator(),
+                const Text(
                   'Connecting to battery...',
                   style: TextStyle(color: Colors.white70),
                 ),
@@ -49,24 +49,24 @@ class HomeViewBody extends StatelessWidget {
                       ],
                     ),
                   ),
-                  VerticalSpace(2),
+                  const VerticalSpace(2),
                   ChargingProgressBar(
                     soc: state.data.soc,
                     estimatedRange: state.data.estimatedRange,
                   ),
-                  VerticalSpace(2),
+                  const VerticalSpace(2),
                   StatsList(
                     batteryPower: state.data.power,
                     cycleCount: state.data.cycleCount,
                     batteryVolt: state.data.voltage,
                     batteryTemp: state.data.temperature,
                   ),
-                  VerticalSpace(1.5),
+                  const VerticalSpace(1.5),
                   ChargingStatusCard(
                     targetCharge: state.data.targetSoc,
                     timeToFull: state.data.timeToFull,
                   ),
-                  VerticalSpace(1),
+                  const VerticalSpace(1),
                   SohCard(sohValue: state.data.soh / 100),
                 ],
               ),
@@ -75,7 +75,7 @@ class HomeViewBody extends StatelessWidget {
         } else if (state is BatteryError) {
           return ErrorView(context: context, message: state.message);
         } else {
-          return Text('data');
+          return const SizedBox();
         }
       },
     );

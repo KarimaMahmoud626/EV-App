@@ -38,24 +38,27 @@ class StatsCustomCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Icon(icon, color: colors.secondary),
-              VerticalSpace(2),
+              const VerticalSpace(2),
               Text(
                 cardTitle,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
-              VerticalSpace(0.5),
+              const VerticalSpace(0.5),
               Row(
                 children: [
                   Text(
                     statsValue,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.normal,
                     ),
                   ),
                   Text(
                     valueUnit ?? '',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.normal,
                     ),

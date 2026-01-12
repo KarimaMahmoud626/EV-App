@@ -53,8 +53,8 @@ class ChargingStationMarker extends StatelessWidget {
           ),
           Icon(
             FontAwesomeIcons.chargingStation,
-            color: station.isActive ? colors.primary : colors.secondary,
-            size: 28,
+            color: station.isActive ? colors.primary : colors.error,
+            size: 24,
           ),
         ],
       ),

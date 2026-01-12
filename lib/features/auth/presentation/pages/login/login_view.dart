@@ -1,30 +1,23 @@
-import 'package:ev_app/features/auth/data/datasources/auth_remote_data_source_impl.dart';
-import 'package:ev_app/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:ev_app/core/di/injection_container.dart';
 import 'package:ev_app/features/auth/presentation/widgets/login_view_body.dart';
 import 'package:ev_app/features/auth/presentation/view_model/bloc/auth_bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
+/// Login screen that provides authentication UI.
+///
+/// Uses dependency injection to provide AuthBloc.
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create:
-          (context) => AuthBloc(
-            repo: AuthRepoImpl(
-              dataSource: AuthRemoteDataSourceImpl(
-                FirebaseAuth.instance,
-                GoogleSignIn(),
-              ),
-            ),
-          ),
+      // Get AuthBloc from DI container
+      create: (context) => sl<AuthBloc>(),
       child: Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        body: LoginViewBody(),
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        body: const LoginViewBody(),
       ),
     );
   }

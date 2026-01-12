@@ -31,7 +31,7 @@ class StatsList extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          VerticalSpace(1),
+          const VerticalSpace(1),
           Row(
             children: [
               Expanded(
@@ -53,7 +53,7 @@ class StatsList extends StatelessWidget {
               ),
             ],
           ),
-          VerticalSpace(1),
+          const VerticalSpace(1),
           Row(
             children: [
               Expanded(

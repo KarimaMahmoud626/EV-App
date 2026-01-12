@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ev_app/core/constants.dart';
+import 'package:ev_app/core/constants/constants.dart';
 import 'package:ev_app/features/charging_stations/data/utils/estimated_power_calculator.dart';
 
 class StationConnectionModel extends Equatable {
@@ -20,18 +20,18 @@ class StationConnectionModel extends Equatable {
   });
 
   factory StationConnectionModel.fromJson(Map<String, dynamic> data) {
-    final raw = data[kStationConnectionType] as String;
+    final raw = (data[kStationConnectionType] as String?) ?? 'Unknown';
 
     final parts = raw.split(' - ');
     return StationConnectionModel(
       rawTypeName: raw,
       displayName: parts.first,
       standard: parts.length > 1 ? parts.last : null,
-      level: data[kStationConnectionLevel],
-      numConnectors: data[kStationNumOfConnectors],
-      estimatedPower: EstimatedPowerCalculator().estimatePower(
-        level: data[kStationConnectionLevel],
-        typeName: data[kStationConnectionType],
+      level: data[kStationConnectionLevel] as int?,
+      numConnectors: (data[kStationNumOfConnectors] as int?) ?? 0,
+      estimatedPower: EstimatedPowerCalculator.estimatePower(
+        level: data[kStationConnectionLevel] as int?,
+        typeName: raw,
       ),
     );
   }

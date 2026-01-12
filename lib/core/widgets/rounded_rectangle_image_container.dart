@@ -29,7 +29,7 @@ class RoundedRectangleImageContainer extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: colors.primary),
+          border: Border.all(color: colors.outline),
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(10),

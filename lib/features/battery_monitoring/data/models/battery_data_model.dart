@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:ev_app/core/constants.dart';
+import 'package:ev_app/core/constants/constants.dart';
 
 class BatteryDataModel extends Equatable {
   final double soc;

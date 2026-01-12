@@ -1,3 +1,4 @@
+import 'package:ev_app/core/utils/navigation_helper.dart';
 import 'package:ev_app/core/utils/size_config.dart';
 import 'package:ev_app/core/widgets/custom_buttons.dart';
 import 'package:ev_app/core/widgets/custom_line.dart';
@@ -5,7 +6,6 @@ import 'package:ev_app/core/widgets/space.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
 import 'package:ev_app/features/auth/presentation/widgets/login_form_item.dart';
 import 'package:ev_app/features/auth/presentation/view_model/bloc/auth_bloc.dart';
-import 'package:ev_app/features/nav_bar/presentation/widgets/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,16 +37,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     return BlocConsumer<AuthBloc, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          Navigator.pushReplacement(
+          NavigationHelper.toMain(
             context,
-            MaterialPageRoute(
-              builder:
-                  (_) => CustomNavigationBar(
-                    user: UserModel(
-                      name: state.userCred.user!.displayName,
-                      email: state.userCred.user!.email!,
-                    ),
-                  ),
+            user: UserModel(
+              name: state.userCred.user!.displayName,
+              email: state.userCred.user!.email!,
             ),
           );
         }

@@ -41,11 +41,7 @@ class LoadedBody extends StatelessWidget {
           markers: [
             Marker(
               point: state.userLatLng,
-              child: Icon(
-                Icons.person_pin_circle_outlined,
-                color: colors.primary,
-                size: 42,
-              ),
+              child: Icon(Icons.electric_car, color: colors.primary, size: 32),
             ),
           ],
         ),
