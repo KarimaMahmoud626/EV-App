@@ -378,7 +378,7 @@ flutter run
 | Home Screen 1 | Home Screen 2 |
 |:-------------:|:-------------:|
 | ![Dashboard](assets/screenshots/home1.jpeg) | ![Dashboard](assets/screenshots/home2.jpeg) |
-| ![Dashboard](assets/screenshots/home1_light.jpeg) | ![Dashboard](assets/screenshots/home2_lig.jpeg) |
+| ![Dashboard](assets/screenshots/home1_light.jpeg) | ![Dashboard](assets/screenshots/home2_light.jpeg) |
 
 ### Charging Stations
 | Map View | Station Details |
