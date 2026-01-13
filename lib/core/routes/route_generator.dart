@@ -2,6 +2,7 @@ import 'package:ev_app/core/routes/app_routes.dart';
 import 'package:ev_app/features/auth/data/models/user_model.dart';
 import 'package:ev_app/features/auth/presentation/pages/login/login_view.dart';
 import 'package:ev_app/features/onboarding/presentation/onboarding_view.dart';
+import 'package:ev_app/features/settings/presentation/pages/settings_view.dart';
 import 'package:ev_app/core/navigation/navigation_shell.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +33,13 @@ class RouteGenerator {
         // Main navigation shell requires user data
         if (args is UserModel) {
           return _buildRoute(NavigationShell(user: args), settings: settings);
+        }
+        return _errorRoute(settings);
+
+      case AppRoutes.settings:
+        // Settings screen requires user data
+        if (args is UserModel) {
+          return _buildRoute(SettingsView(user: args), settings: settings);
         }
         return _errorRoute(settings);
 

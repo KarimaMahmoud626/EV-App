@@ -60,6 +60,15 @@ Electric vehicle owners face several challenges:
 - User profile handling with Firestore persistence
 - Comprehensive error handling for auth flows
 
+### ⚙️ User Profile & Settings
+- **Profile Management**: View and verify user account details
+- **App Preferences**: 
+  - Toggle notifications
+  - Switch between Light, Dark, and System themes
+  - Customize Display Units (km/miles, °C/°F)
+- **Account Controls**: Secure logout functionality
+- **Persistent Storage**: Settings are saved locally for instant access
+
 ### 🔋 Battery Monitoring System
 - Real-time battery status visualization
 - State of Charge (SoC) display with progress indicators
@@ -308,6 +317,14 @@ lib/
 │   │       ├── view_model/  # HistoryCubit
 │   │       └── widgets/     # History UI components
 │   │
+│   ├── settings/
+│   │   ├── data/
+│   │   │   └── models/      # User preferences
+│   │   └── presentation/
+│   │       ├── pages/       # Settings view
+│   │       ├── view_model/  # SettingsCubit
+│   │       └── widgets/     # Settings widgets
+│   │
 │   └── onboarding/          # Onboarding screens
 │
 ├── firebase_options.dart    # Firebase configuration
@@ -376,6 +393,10 @@ flutter run
    - Switch between daily, weekly, and monthly views
    - Scroll through detailed charging session history cards
 6. **Theme Toggle** → Switch between light and dark modes
+7. **Settings** →
+   - Tap the gear icon on the home screen
+   - Customize app units and notifications
+   - View profile details or log out
 
 ---
 
@@ -414,6 +435,12 @@ flutter run
 | ![Graph](assets/screenshots/usage_time.jpeg) | ![List](assets/screenshots/charging_history.jpeg) |
 | ![Graph](assets/screenshots/usage_time_light.jpeg) | ![List](assets/screenshots/charging_history_light.jpeg) |
 
+### Settings
+| Settings | Settings |
+|:--------:|:---------------:|
+| ![Settings](assets/screenshots/settings.jpeg) | ![Settings](assets/screenshots/settings_light.jpeg) |
+
+
 ---
 
 ## 🚧 Development Status & Roadmap
@@ -430,11 +457,11 @@ flutter run
 - [x] Enhanced history & analytics screens
 - [x] Historical battery data visualization
 - [x] Charging session tracking
+- [x] User preferences and settings
 
 ### 🔄 In Progress
 - [ ] UI/UX refinements and animations
 - [ ] Firestore integration for data persistence
-- [ ] User preferences and settings
 
 ### 🔮 Planned Features
 - [ ] Advanced filtering (by connector type, power output)

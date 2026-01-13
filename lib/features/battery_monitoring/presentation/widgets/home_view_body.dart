@@ -6,6 +6,7 @@ import 'package:ev_app/features/battery_monitoring/presentation/widgets/charging
 import 'package:ev_app/features/battery_monitoring/presentation/widgets/charging_progress_bar.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/widgets/charging_status_card.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/widgets/error_view.dart';
+import 'package:ev_app/features/battery_monitoring/presentation/widgets/settings_button.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/widgets/soh_card.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/widgets/stats_list.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/widgets/theme_toggle_button.dart';
@@ -43,7 +44,7 @@ class HomeViewBody extends StatelessWidget {
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       children: [
-                        ThemeToggleButton(),
+                        SettingsButton(user: user),
                         Spacer(),
                         ChargingButton(buildContext: context),
                       ],
