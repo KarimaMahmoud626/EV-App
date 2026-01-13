@@ -83,6 +83,15 @@ Electric vehicle owners face several challenges:
   - One-tap directions from station details
   - Automatic location permission handling
 
+### 📊 Charging History & Analytics
+- **Visual Battery Usage Graph**: Interactive line chart showing battery levels over time
+- **Time Range Filtering**: Easy toggle between Daily, Weekly, and Monthly views
+- **Detailed Charging Sessions**:
+  - Comprehensive breakdown of each charging event
+  - Metrics including energy added (kWh), cost, duration, and SOC change
+  - Charging location and type details
+- **Categorized Charging Types**: Visual distinction between Home, Public, Fast, and Supercharger sessions
+
 ### 🗺️ Interactive Map Visualization
 - **OpenStreetMap** integration with flutter_map
 - Color-coded station markers:
@@ -290,6 +299,15 @@ lib/
 │   │       ├── view_model/  # ChargingStationCubit
 │   │       └── widgets/     # Map, markers, bottom sheet
 │   │
+│   ├── history/
+│   │   ├── data/
+│   │   │   ├── models/      # History models
+│   │   │   └── repos/       # History repository
+│   │   └── presentation/
+│   │       ├── pages/       # History view
+│   │       ├── view_model/  # HistoryCubit
+│   │       └── widgets/     # History UI components
+│   │
 │   └── onboarding/          # Onboarding screens
 │
 ├── firebase_options.dart    # Firebase configuration
@@ -353,7 +371,11 @@ flutter run
    - Stations are automatically loaded based on your location
    - Tap any marker to view station details
    - Tap "Directions" to navigate to the station using your preferred map app
-5. **Theme Toggle** → Switch between light and dark modes
+5. **History & Analytics** →
+   - View graphical representation of battery usage
+   - Switch between daily, weekly, and monthly views
+   - Scroll through detailed charging session history cards
+6. **Theme Toggle** → Switch between light and dark modes
 
 ---
 
@@ -386,6 +408,12 @@ flutter run
 | ![Map](assets/screenshots/map_view.jpeg) | ![Details](assets/screenshots/station_info.jpeg) |
 | ![Map](assets/screenshots/map_view_light.jpeg) | ![Details](assets/screenshots/station_info_light.jpeg) |
 
+### Charging History
+| Battery Usage Time | Charging History List |
+|:--------:|:---------------:|
+| ![Graph](assets/screenshots/usage_time.jpeg) | ![List](assets/screenshots/charging_history.jpeg) |
+| ![Graph](assets/screenshots/usage_time_light.jpeg) | ![List](assets/screenshots/charging_history_light.jpeg) |
+
 ---
 
 ## 🚧 Development Status & Roadmap
@@ -399,9 +427,11 @@ flutter run
 - [x] Clean Architecture implementation
 - [x] BLoC state management
 - [x] Light/Dark theme support
+- [x] Enhanced history & analytics screens
+- [x] Historical battery data visualization
+- [x] Charging session tracking
 
 ### 🔄 In Progress
-- [ ] Enhanced history & analytics screens
 - [ ] UI/UX refinements and animations
 - [ ] Firestore integration for data persistence
 - [ ] User preferences and settings
@@ -412,8 +442,6 @@ flutter run
 - [ ] Favorite charging stations
 - [ ] Route planning to stations
 - [ ] Push notifications for charging status
-- [ ] Historical battery data visualization
-- [ ] Charging session tracking
 - [ ] iOS platform support
 - [ ] Widget tests & integration tests
 - [ ] CI/CD pipeline

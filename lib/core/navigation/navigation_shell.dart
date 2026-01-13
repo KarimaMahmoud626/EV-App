@@ -1,6 +1,7 @@
 import 'package:ev_app/features/auth/data/models/user_model.dart';
 import 'package:ev_app/features/battery_monitoring/presentation/pages/home/home_view.dart';
 import 'package:ev_app/features/charging_stations/presentation/pages/station_view.dart';
+import 'package:ev_app/features/history/presentation/pages/history_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -92,42 +93,8 @@ class _NavigationShellState extends State<NavigationShell> {
     return [
       const StationView(key: ValueKey('station_view')),
       HomeView(key: const ValueKey('home_view'), user: widget.user),
-      _buildHistoryPlaceholder(),
+      const HistoryView(key: ValueKey('history_view')),
     ];
-  }
-
-  /// Builds a placeholder for the history screen.
-  ///
-  /// TODO: Replace with actual HistoryView when implemented.
-  Widget _buildHistoryPlaceholder() {
-    return Scaffold(
-      key: const ValueKey('history_view'),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.history,
-              size: 64,
-              color: Theme.of(
-                context,
-              ).colorScheme.primary.withValues(alpha: 0.5),
-            ),
-            const SizedBox(height: 16),
-            Text('History', style: Theme.of(context).textTheme.headlineMedium),
-            const SizedBox(height: 8),
-            Text(
-              'Coming soon',
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: Theme.of(
-                  context,
-                ).colorScheme.onSurface.withValues(alpha: 0.6),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 
   @override

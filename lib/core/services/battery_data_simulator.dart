@@ -31,7 +31,7 @@ class BatteryDataSimulator {
   double _targetSOC = maxChargingSOC; // ← Target for charging
 
   // Constructor
-  BatteryDataSimulator({double initialSOC = 15.0}) {
+  BatteryDataSimulator({double initialSOC = 65.0}) {
     _currentSOC = initialSOC.clamp(absoluteMinSOC, 100.0);
   }
 
