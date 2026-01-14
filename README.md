@@ -409,33 +409,43 @@ flutter run
 
 ---
 
-## 📸 Screenshots
+## � App Demo
 
-### Onboarding & Authentication
+### 🎥 Video Walkthrough
+
+Experience a complete walkthrough of the application features:
+
+[**▶️ Watch App Demo Video**](assets/screenshots/app_demo.mp4)
+
+> *Click the link above to watch the full demo video*
+
+### 📸 Interface Gallery
+
+#### Onboarding & Authentication
 | Onboarding | Login |
 |:--------:|:---------------:|
 | ![Onboarding](assets/screenshots/onboarding.jpeg) | ![Login](assets/screenshots/login.jpeg) |
 | ![Onboarding](assets/screenshots/onboarding_light.jpeg) | ![Login](assets/screenshots/login_light.jpeg) |
 
-### Dashboard
+#### Dashboard
 | Home Screen 1 | Home Screen 2 |
 |:-------------:|:-------------:|
 | ![Dashboard](assets/screenshots/home1.jpeg) | ![Dashboard](assets/screenshots/home2.jpeg) |
 | ![Dashboard](assets/screenshots/home1_light.jpeg) | ![Dashboard](assets/screenshots/home2_light.jpeg) |
 
-### Charging Stations
+#### Charging Stations
 | Map View | Station Details |
 |:--------:|:---------------:|
 | ![Map](assets/screenshots/map_view.jpeg) | ![Details](assets/screenshots/station_info.jpeg) |
 | ![Map](assets/screenshots/map_view_light.jpeg) | ![Details](assets/screenshots/station_info_light.jpeg) |
 
-### Charging History
+#### Charging History
 | Battery Usage Time | Charging History List |
 |:--------:|:---------------:|
 | ![Graph](assets/screenshots/usage_time.jpeg) | ![List](assets/screenshots/charging_history.jpeg) |
 | ![Graph](assets/screenshots/usage_time_light.jpeg) | ![List](assets/screenshots/charging_history_light.jpeg) |
 
-### Settings
+#### Settings
 | Settings | Settings |
 |:--------:|:---------------:|
 | ![Settings](assets/screenshots/settings.jpeg) | ![Settings](assets/screenshots/settings_light.jpeg) |
